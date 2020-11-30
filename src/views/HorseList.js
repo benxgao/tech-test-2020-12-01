@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import R from 'ramda';
 import PropTypes from 'prop-types';
 import HorseProfile from './HorseProfile';
-import { loadUserPage } from '../actions';
+import { loadHorses } from '../actions';
 import { connect } from 'react-redux';
 
-class UserList extends Component {
+class HorseList extends Component {
   componentDidMount() {
-    this.props.loadUserPage();
+    this.props.loadHorses();
   }
 
   render() {
-    const { users } = this.props;
-    console.log('users', users);
+    const { horses } = this.props;
+    console.log('horses', horses);
     return (
       <div>
-        <h3>users</h3>
-        {users && users.foreach(user => {
-          console.log('user', user);
+        <h3>horses</h3>
+        {horses && horses.foreach(horse => {
+          console.log('horse', horse);
           return (
-            <HorseProfile key={user.id} {...{user}} />
+            <HorseProfile key={horse.id} {...{horse}} />
           );
         })}
       </div>
@@ -27,8 +27,8 @@ class UserList extends Component {
   }
 }
 
-// UserList.propTypes = {
-//   users: PropTypes.arrayOf(
+// HorseList.propTypes = {
+//   horses: PropTypes.arrayOf(
 //     PropTypes.shape({
 //       id: PropTypes.number.isRequired,
 //     }),
@@ -36,12 +36,12 @@ class UserList extends Component {
 // }
 
 const mapStateToProps = state => {
-  return ({ users: state.users });
+  return ({ horses: state.horses });
 }
 
 export default connect(
   mapStateToProps,
   {
-    loadUserPage
+    loadHorses
   }
-)(UserList);
+)(HorseList);

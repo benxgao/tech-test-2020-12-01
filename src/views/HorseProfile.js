@@ -15,7 +15,7 @@ export default class HorseProfile extends Component {
 };
 
 HorseProfile.propTypes = {
-  user: PropTypes.shape({
+  horse: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }).isRequired,
 };
