@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class UserItem extends Component {
+export default class HorseProfile extends Component {
   render() {
-    const { user } = this.props;
-    console.log('user', user);
+    const { horse } = this.props;
+    console.log('horse', horse);
 
     return (
       <div>
-        {user.id}
+        {horse.id}
       </div>
     );
   }
 };
 
-UserItem.propTypes = {
+HorseProfile.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }).isRequired,

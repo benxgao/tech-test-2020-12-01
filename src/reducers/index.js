@@ -1,13 +1,13 @@
 import R from 'ramda';
 import { combineReducers } from 'redux';
-import { GET_ALL_USERS, RECEIVE_USERS } from '../actions';
+import { GET_HORSE_LIST, RECEIVE_HORSE_LIST } from '../actions';
 
-function users(state = {}, action) {
+function horses(state = {}, action) {
   switch (action.type) {
-    case GET_ALL_USERS:
+    case GET_HORSE_LIST:
       return state;
 
-    case RECEIVE_USERS:
+    case RECEIVE_HORSE_LIST:
       return R.merge(state, action.payload);
 
       default:
@@ -16,5 +16,5 @@ function users(state = {}, action) {
 };
 
 export default combineReducers({
-  users,
+  horses,
 });

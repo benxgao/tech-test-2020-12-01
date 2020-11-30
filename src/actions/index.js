@@ -1,15 +1,15 @@
-export const GET_ALL_USERS = 'GET_ALL_USERS'
-export const RECEIVE_USERS = 'RECEIVE_USERS'
+export const GET_HORSE_LIST = 'GET_HORSE_LIST'
+export const RECEIVE_HORSE_LIST = 'RECEIVE_HORSE_LIST'
 
 export function loadUserPage() {
   return {
-    type: GET_ALL_USERS,
+    type: GET_HORSE_LIST,
   }
 };
 
-export function receiveUsers(users) {
+export function receiveUsers(horseList) {
   return {
-    type: RECEIVE_USERS,
-    payload: users,
+    type: RECEIVE_HORSE_LIST,
+    payload: horseList,
   }
 };

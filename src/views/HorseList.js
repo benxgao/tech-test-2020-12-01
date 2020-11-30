@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import R from 'ramda';
 import PropTypes from 'prop-types';
-import UserItem from './UserItem';
+import HorseProfile from './HorseProfile';
 import { loadUserPage } from '../actions';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ class UserList extends Component {
         {users && users.foreach(user => {
           console.log('user', user);
           return (
-            <UserItem key={user.id} {...{user}} />
+            <HorseProfile key={user.id} {...{user}} />
           );
         })}
       </div>

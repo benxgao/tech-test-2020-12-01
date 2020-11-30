@@ -1,25 +1,21 @@
 /* eslint-disable no-constant-condition */
 
 import { take, put, call, fork, select, takeEvery, takeLatest, all } from 'redux-saga/effects';
-import {GET_ALL_USERS, RECEIVE_USERS} from '../actions';
-import { userApi } from '../services/users';
+import {GET_HORSE_LIST, RECEIVE_HORSE_LIST} from '../actions';
+import { horsesApi } from '../services/horses';
 
-export function* getUsers() {
-  const userList = yield call(userApi.getAllUsers);
-  // const users = userList.reduce(function(acc, cur) {
-  //   acc[cur.id] = cur;
-  //   return acc;
-  // }, {});
+export function* getHorses() {
+  const horseList = yield call(horsesApi.getHorseList);
 
-  yield put({ type: RECEIVE_USERS, payload: userList });
+  yield put({ type: RECEIVE_HORSE_LIST, payload: horseList });
 };
 
-export function* watchGetUsers() {
-  yield takeLatest(GET_ALL_USERS, getUsers);
+export function* watchGetHorses() {
+  yield takeLatest(GET_HORSE_LIST, getHorses);
 };
 
 export default function* root() {
   yield all([
-    fork(watchGetUsers),
+    fork(watchGetHorses),
   ]);
 };

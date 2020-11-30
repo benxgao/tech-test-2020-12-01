@@ -1,10 +1,10 @@
 import React from 'react';
-import UserList from './UserList';
+import HorseList from './HorseList';
 
 const Main = ({}) => (
   <>
     <h1>Hello world</h1>
-    <UserList />
+    <HorseList />
   </>
 );
 
