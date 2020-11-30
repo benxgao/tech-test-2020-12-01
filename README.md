@@ -121,3 +121,8 @@ solution:
 - Add a checkbox to each accordion headerbar;
 - When users check the selected horses, a "compare" button is showing up;
 - When users click on the "compare" button, users is navigated to a new page with horse infomation displaying;
+
+## Screenshot
+
+![screenshot](docs/screenshot.png?raw=true)
+
