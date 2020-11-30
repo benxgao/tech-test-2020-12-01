@@ -19,5 +19,32 @@ Time: 9am - 11am
 - development/production environment config
 
 
+## Get started in development mode
 
+```bash
+# Commandline window 1:
+docker pull firstaml/horse-test:latest
+docker run -p 3016:3016 firstaml/horse-test:latest
+
+# Commandline window 2:
+cd [repo folder]
+yarn
+yarn start
+
+# Launch application in browser
+http://localhost:8080
+```
+
+## Testing
+
+```bash
+# Run unit test
+yarn test
+
+# Run unit test with coverage report
+yarn test --coverage
+
+# Run unit test with hot refreshing
+yarn test --watch
+```
 
