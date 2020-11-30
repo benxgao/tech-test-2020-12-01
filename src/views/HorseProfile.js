@@ -21,7 +21,7 @@ const HorseDetails = styled.div`
 export default class HorseProfile extends Component {
   render() {
     const { horse } = this.props;
-    const horseFavouriteFood = R.pathOr('unknown', ['profile', 'physical', 'favouriteFood'])(horse);
+    const horseFavouriteFood = R.pathOr('unknown', ['profile', 'favouriteFood'])(horse);
     const horseHeight = R.pathOr('unknown', ['profile', 'physical', 'height'])(horse);
     const horseWeight = R.pathOr('unknown', ['profile', 'physical', 'weight'])(horse);
 
