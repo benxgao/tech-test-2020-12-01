@@ -13,11 +13,11 @@ const HorseListContainer = styled.div`
 
 export const limitedHorseList = (horses = [], limitDataSetLength) => {
   if (Array.isArray(horses)) {
-    return horses.slice(0, limitDataSetLength - 1);
+    return horses.slice(0, limitDataSetLength);
   }
 
   if (typeof horses === 'object') {
-    return Object.keys(horses).slice(0, limitDataSetLength - 1).map(key => horses[key]);
+    return Object.keys(horses).slice(0, limitDataSetLength).map(key => horses[key]);
   }
 
   return horses;
