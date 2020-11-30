@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
+import {v4 as uuidv4} from 'uuid';
 import R from 'ramda';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import HorseProfile from './HorseProfile';
-import { loadUserPage } from '../actions';
+import { loadHorses } from '../actions';
 import { connect } from 'react-redux';
 
-class UserList extends Component {
+const HorseListContainer = styled.div`
+  /* display: flex;
+  align-content: center; */
+`;
+
+class HorseList extends Component {
   componentDidMount() {
-    this.props.loadUserPage();
+    this.props.loadHorses();
   }
 
   render() {
-    const { users } = this.props;
-    console.log('users', users);
+    const { horses } = this.props;
     return (
-      <div>
-        <h3>users</h3>
-        {users && users.foreach(user => {
-          console.log('user', user);
-          return (
-            <HorseProfile key={user.id} {...{user}} />
-          );
-        })}
-      </div>
+      <>
+        <HorseListContainer>
+          {horses && Object.keys(horses).map(horseKey => {
+            const horse = horses[horseKey];
+            return (
+              <HorseProfile key={`${uuidv4()}_${horse.id}`} {...{horse}} />
+            );
+          })}
+        </HorseListContainer>
+      </>
     )
   }
 }
 
-// UserList.propTypes = {
-//   users: PropTypes.arrayOf(
+// HorseList.propTypes = {
+//   horses: PropTypes.arrayOf(
 //     PropTypes.shape({
 //       id: PropTypes.number.isRequired,
 //     }),
@@ -36,12 +43,12 @@ class UserList extends Component {
 // }
 
 const mapStateToProps = state => {
-  return ({ users: state.users });
+  return ({ horses: state.horses });
 }
 
 export default connect(
   mapStateToProps,
   {
-    loadUserPage
+    loadHorses
   }
-)(UserList);
+)(HorseList);
